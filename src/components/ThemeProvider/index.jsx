@@ -9,7 +9,7 @@ const tema = {
     focus: "",
     primarias: {
       a: "#5754ED",
-      b: "",
+      b: "#D93114",
       c: "",
     },
     secundarias: {
