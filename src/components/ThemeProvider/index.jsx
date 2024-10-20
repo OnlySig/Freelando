@@ -4,7 +4,7 @@ import PropTypes from "prop-types";
 
 const tema = {
   cores: {
-    white: "",
+    white: "#FFF",
     warning: "",
     focus: "",
     primarias: {
@@ -18,9 +18,9 @@ const tema = {
       c: "",
     },
     neutras: {
-      a: "",
+      a: "#373737",
       b: "",
-      c: "",
+      c: "#F5F5F5",
     },
     dark: {
       a: "",
@@ -36,6 +36,9 @@ const tema = {
     l: "32px",
     xl: "48px",
     xxl: "64px"
+  },
+  fontFamily: {
+    montSerrat: "'Montserrat', sans-serif",
   }
 };
 

@@ -16,7 +16,7 @@ export default [
       },
     },
     rules:{
-      "react/react-in-jsx-scope": "off", //!desabilita a regra de 'React' no escopo em projetos com React 17+ n consegui fazer isso daqui funcionar.
+      "react/react-in-jsx-scope": "off", //!desabilita a regra de 'React' no escopo em projetos com React 17+ n consegui fazer isso daqui funcionar :(.
       "no-unused-vars": "warn",
       "quotes": ["error", "double"],
       semi: ["error", "always"],
