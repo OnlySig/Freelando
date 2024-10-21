@@ -11,7 +11,7 @@ const StyledLabel = styled.label `
     border-radius: ${props=>props.theme.espacamentos.s};
     padding: 12px ${props=>props.theme.espacamentos.s};
     background-color: ${props=>props.theme.cores.white};
-    margin: ${props=>props.theme.espacamentos.xs} 0 ${props=>props.theme.espacamentos.s} 0;
+    margin-bottom: ${props=>props.theme.espacamentos.xs};
     outline: none;
     font-size: 14px;
     color: ${props=>props.theme.cores.neutras.a};

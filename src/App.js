@@ -11,10 +11,9 @@ import { ReactComponent as ArrowRigth } from "./images/icons/iconeBotões/ícone
 import { ReactComponent as ArrowLeft } from "./images/icons/iconeBotões/ícone voltar.svg";
 import Button from "./components/Button";
 import Select from "./components/Select";
+import { estados } from "./components/Select/estados";
 
 function App() {
-  const [select, setSelect] = useState("");
-  console.log(select);
 
   return (
     <CompThemeProvider>
@@ -37,7 +36,7 @@ function App() {
               </Row>
               <Row>
                 <Col lg={4} md={4} sm={4}>
-                  <Select value={select} setValue={e => setSelect(e)}/>
+                  <Select label="Estado" arry={estados}/>
                 </Col>
                 <Col lg={8} md={8} sm={8}>
                   <InputText require textLabel="Cidade"/>
@@ -50,10 +49,10 @@ function App() {
               </Row>
               <Row >
                 <Col lg={6} md={6} sm={6}>
-                  <InputText require textLabel="Email"/>
+                  <InputText require textLabel="Senha"/>
                 </Col>
                 <Col lg={6} md={6} sm={6}>
-                  <InputText require textLabel="Email"/>
+                  <InputText require textLabel="Repita a senha"/>
                 </Col>
               </Row>
               <Row>
