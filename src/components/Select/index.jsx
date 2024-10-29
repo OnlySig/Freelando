@@ -61,6 +61,7 @@ const StyledButton = styled.button `
 const Select = ({ label, arry }) => {
   const [toggle, setToggle] = useState(false);
   const [selecionado, setSelecionado] = useState(null);
+  if(!arry) return <h1>dados inválidos!</h1>;
   return (
     <>
       <StyledLabel>

@@ -1,5 +1,6 @@
 import styled from "@emotion/styled";
 import React from "react";
+import PropTypes from "prop-types";
 
 const StyledRadio = styled.div `
   input {
@@ -31,7 +32,7 @@ const StyledLabel = styled.label `
     cursor: pointer;
   }
 `;
-const index = ({ valor, radioText, checked, onClick }) => {
+const RadioBtn = ({ valor, radioText, checked, onClick }) => {
   return (
     <StyledRadio>
       <input type="radio" id={`radio_custom_${valor}`} checked={checked} onChange={onClick}/>
@@ -40,4 +41,12 @@ const index = ({ valor, radioText, checked, onClick }) => {
   );
 };
 
-export default index;
+RadioBtn.propTypes = {
+  valor: PropTypes.string,
+  radioText: PropTypes.string,
+  checked: PropTypes.bool,
+  onClick: PropTypes.func
+};
+
+
+export default RadioBtn;

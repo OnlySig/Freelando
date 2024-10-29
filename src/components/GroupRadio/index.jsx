@@ -1,7 +1,9 @@
+/* eslint-disable react/prop-types */
 import React from "react";
 import RadioBtn from "../RadioBtn";
 
-const index = ({ opcoes, valor, onChange }) => {
+const GroupRadio = ({ opcoes, valor, onChange }) => {
+  if(!opcoes) return <h1>Sem dados!</h1>;
   return (
     <div>
       {opcoes?.map(opcao =>
@@ -17,4 +19,4 @@ const index = ({ opcoes, valor, onChange }) => {
   );
 };
 
-export default index;
+export default GroupRadio;
