@@ -1,12 +1,13 @@
 import React from "react";
-import Tipografia from "../components/Tipografia";
-import InputText from "../components/InputText";
+import Tipografia from "../../components/Tipografia";
+import InputText from "../../components/InputText";
 import { Col, Container, Row } from "react-grid-system";
-import { ReactComponent as ArrowRigth } from "../images/icons/iconeBotões/ícone próximo.svg";
-import { ReactComponent as ArrowLeft } from "../images/icons/iconeBotões/ícone voltar.svg";
-import Button from "../components/Button";
-import Select from "../components/Select";
-import { estados } from "../components/Select/estados";
+import { ReactComponent as ArrowRigth } from "../../images/icons/iconeBotões/ícone próximo.svg";
+import { ReactComponent as ArrowLeft } from "../../images/icons/iconeBotões/ícone voltar.svg";
+import Button from "../../components/Button";
+import Select from "../../components/Select";
+import { estados } from "../../components/Select/estados";
+import { Link } from "react-router-dom";
 
 const HomePage = () => {
   return (
@@ -47,16 +48,20 @@ const HomePage = () => {
       </Row>
       <Row>
         <Col lg={6} md={6} sm={6} >
-          <Button variante="secundaria">
-            <ArrowLeft/>
-            Anterior
-          </Button>
+          <Link to="/cadastro/interesses" style={{ textDecoration: "none" }}>
+            <Button variante="secundaria">
+              <ArrowLeft/>
+              Anterior
+            </Button>
+          </Link>
         </Col>
         <Col lg={6} md={6} sm={6} style={{ textAlign: "-webkit-right" }}>
-          <Button>
-            Próximo
-            <ArrowRigth/>
-          </Button>
+          <Link to="/cadastro/concluido" style={{ textDecoration: "none" }}>
+            <Button>
+              Próximo
+              <ArrowRigth/>
+            </Button>
+          </Link>
         </Col>
       </Row>
     </Container>

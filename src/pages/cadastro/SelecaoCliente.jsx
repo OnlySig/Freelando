@@ -14,14 +14,6 @@ const StyledDiv = styled.div `
     color: ${props=>props.theme.cores.primarias.b}
   }
 `;
-
-const StyledDivTitle = styled.div `
-  margin-bottom: 46px;
-  h1 {
-    margin: 0;
-  }
-`;
-
 const StyledAvatar = styled.div `
   text-align: center; 
   display: flex; 
@@ -30,17 +22,19 @@ const StyledAvatar = styled.div `
   p {
     max-width: 200px;
   }
+  a {
+    text-decoration: none;
+    color: ${props=>props.theme.cores.neutras.a};
+  }
 `;
 
 const SelecaoCliente = () => {
   return (
     <section style={{ textAlign: "center" }}>
       <div>
-        <StyledDivTitle style={{ marginBottom: "46px" }}>
-          <Tipografia tag="h1" variante="h1">
+        <Tipografia tag="h1" variante="h1">
             Crie seu cadastro
-          </Tipografia>
-        </StyledDivTitle>
+        </Tipografia>
         <Tipografia tag="h3" variante="h3">
           Como podemos te ajudar?
         </Tipografia>
@@ -48,10 +42,12 @@ const SelecaoCliente = () => {
       <Row>
         <Col lg={6} md={6} sm={12}>
           <StyledAvatar>
-            <img src={cliente} alt="foto de um cliente"/>
-            <Tipografia variante="body" tag="body">
+            <Link to="interesses"> { /** NÃO PRECISA FAZER ASSIM: /cadastro/interesses */ }
+              <img src={cliente} alt="foto de um cliente"/>
+              <Tipografia variante="body" tag="body">
               Sou cliente e preciso de um freela!
-            </Tipografia>
+              </Tipografia>
+            </Link>
           </StyledAvatar>
         </Col>
         <Col lg={6} md={6} sm={12}>

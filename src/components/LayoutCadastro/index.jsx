@@ -5,7 +5,7 @@ import { Outlet } from "react-router-dom";
 
 const index = () => {
   return (
-    <Row justify="center" style={{ margin: 0 }}>
+    <Row justify="center">
       <Col xxx={6} xxl={6} xl={6} lg={6} md={8} sm={12}>
         <Card>
           <Outlet/>

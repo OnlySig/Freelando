@@ -14,6 +14,7 @@ const StyledButtonOne = styled.button `
   display: flex;
   align-items: center;
   gap: 8px;
+  margin-top: 8px;
   cursor: pointer;
   :hover {
     background-color: ${props=>props.theme.cores.neutras.c};
@@ -36,6 +37,7 @@ const StyledButtonTwo = styled.button `
   display: flex;
   align-items: center;
   gap: 8px;
+  margin-top: 8px;
   cursor: pointer;
   path {
     fill: ${props=>props.theme.cores.primarias.b};

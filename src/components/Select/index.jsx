@@ -61,8 +61,6 @@ const StyledButton = styled.button `
 const Select = ({ label, arry }) => {
   const [toggle, setToggle] = useState(false);
   const [selecionado, setSelecionado] = useState(null);
-  console.log(selecionado);
-  console.log(toggle);
   return (
     <>
       <StyledLabel>
@@ -82,7 +80,7 @@ const Select = ({ label, arry }) => {
           }
         </StyledButton>
         {toggle && <ul>
-          {arry.map((e, index) => 
+          {arry?.map((e, index) => 
             <li 
               onClick={()=>setSelecionado(e)}
               key={index}>

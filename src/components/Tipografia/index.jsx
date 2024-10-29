@@ -15,6 +15,7 @@ const componentes = {
 
 const estilos = {
   h1: `
+    margin: 0 0 42px 0;
     font-weight: 600;
     font-size: 40px;
     line-height: 49px;
