@@ -35,8 +35,8 @@ const InputText = ({ require, textLabel }) => {
 InputText.propTypes = {
   require: PropTypes.bool,
   textLabel: PropTypes.string,
-  value: PropTypes.string,
-  setValue: PropTypes.func.isRequired,
+  //value: PropTypes.string,
+  //setValue: PropTypes.func.isRequired,
 };
 
 export default InputText;
