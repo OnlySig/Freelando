@@ -17,6 +17,7 @@ const DadosPessoais = () => {
     e.preventDefault();
     submitarUsuario();
   };
+  console.log(usuario);
   return (
     <Container>
       <form onSubmit={handleSubmit}>
@@ -43,8 +44,8 @@ const DadosPessoais = () => {
             <Select 
               label="Estado" 
               arry={estados} 
-              selecionado={usuario.estadoUF} 
-              setSelecionado={estado => updateUserField("estadoUF", estado)}
+              selecionado={usuario.uf} 
+              setSelecionado={estado => updateUserField("uf", estado)}
             />
           </Col>
           <Col lg={8} md={8} sm={8}>

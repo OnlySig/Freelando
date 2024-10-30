@@ -1,12 +1,24 @@
-import React from "react";
+import React, { useEffect } from "react";
 import GroupRadio from "../../components/GroupRadio";
 import { opcoes } from "../../components/GroupRadio/opcoes";
 import Tipografia from "../../components/Tipografia";
 import PrevNext from "../../components/PrevNext";
 import { useCadastroUsuarioContext } from "../../context/CadastroUsuario";
+import { useNavigate } from "react-router-dom";
 
 const Interesses = () => {
-  const { updateUserField, usuario } = useCadastroUsuarioContext();
+  const { 
+    updateUserField, 
+    usuario, 
+    selectInteresse 
+  } = useCadastroUsuarioContext();
+  
+  const navegar = useNavigate();
+  useEffect(()=>{
+    if(!selectInteresse()) {
+      navegar("/cadastro");
+    }
+  }, [navegar, selectInteresse]);
   console.log(usuario);
   return (
     <div style={{ textAlign: "center" }}>

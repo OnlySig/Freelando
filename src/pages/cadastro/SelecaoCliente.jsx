@@ -30,7 +30,8 @@ const StyledAvatar = styled.div `
 `;
 
 const SelecaoCliente = () => {
-  const { updateUserField } = useCadastroUsuarioContext();
+  const { updateUserField, usuario } = useCadastroUsuarioContext();
+  console.log(usuario);
   return (
     <section style={{ textAlign: "center" }}>
       <div>

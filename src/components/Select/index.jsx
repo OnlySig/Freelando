@@ -61,6 +61,7 @@ const StyledButton = styled.button `
 const Select = ({ label, arry, selecionado, setSelecionado }) => {
   const [toggle, setToggle] = useState(false);
   if(!arry) return <h1>dados inválidos!</h1>;
+  console.log(selecionado);
   return (
     <>
       <StyledLabel>
@@ -73,7 +74,7 @@ const Select = ({ label, arry, selecionado, setSelecionado }) => {
           onKeyDown={()=>setToggle(true)}
           onClick={()=>setToggle(!toggle)}
         >
-          {selecionado ? selecionado : "Selecione"}
+          {selecionado.text === "" ? "Selecione" : selecionado.text }
           {toggle ?
             <ArrowUp />:
             <ArrowDown />
@@ -82,7 +83,7 @@ const Select = ({ label, arry, selecionado, setSelecionado }) => {
         {toggle && <ul>
           {arry?.map((e, index) => 
             <li 
-              onClick={()=>setSelecionado(e.text)}
+              onClick={()=>setSelecionado(e)}
               key={index}>
               { e.text }
             </li>
@@ -95,7 +96,7 @@ const Select = ({ label, arry, selecionado, setSelecionado }) => {
 
 Select.propTypes = {
   setSelecionado: PropTypes.func,
-  selecionado: PropTypes.string, 
+  selecionado: PropTypes.object, 
   label: PropTypes.string,
   arry: PropTypes.array
 };

@@ -4,16 +4,22 @@ const initialUser = {
   perfil: "",
   interesse: "",
   nomeCompleto: "",
-  estadoUF: "",
+  uf: {
+    text: "",
+    value: ""
+  },
   cidade: "",
   email: "",
   senha: "",
   senhaConfimada: "",
+  errors: {}
 };
 export const CadastroUsuarioContext = createContext({
   usuario: initialUser,
   updateUserField: () => null,
-  submitarUsuario: () => null
+  submitarUsuario: () => null,
+  selectInteresse: () => null,
+  errors: {}
 });
 
 export const useCadastroUsuarioContext = () => {
@@ -35,15 +41,41 @@ export const CadastroUsuarioProvider = ({ children }) => {
     });
   };
 
+  const formDadosPessoaisController = (field, message) => {
+    usuario.errors = {
+      [field]: message
+    };
+  };
+
   const submitarUsuario = () => {
     console.log(usuario);
+    if(usuario.senha !== usuario.senhaConfimada){
+      formDadosPessoaisController("senha", "Senhas não são iguais!");
+    } else {
+      usuario.errors = {};
+    }
+    if(!usuario.uf.text || !usuario.uf.value) {
+      console.log("oi");
+      formDadosPessoaisController("uf", "Campo estado é obrigatório!");
+    } else {
+      usuario.errors = {};
+    }
+    if(usuario.errors.senha || usuario.errors.uf) {
+      return;
+    }
+      
     navegar("/cadastro/concluido");
+  };
+
+  const selectInteresse = () => {
+    return usuario.perfil.length !== 0;
   };
 
   const context = {
     usuario,
     updateUserField,
     submitarUsuario,
+    selectInteresse,
   };
   return (
     <CadastroUsuarioContext.Provider value={context}>
