@@ -4,6 +4,7 @@ import RadioBtn from "../RadioBtn";
 
 const GroupRadio = ({ opcoes, valor, onChange }) => {
   if(!opcoes) return <h1>Sem dados!</h1>;
+  console.log(valor);
   return (
     <div>
       {opcoes?.map(opcao =>

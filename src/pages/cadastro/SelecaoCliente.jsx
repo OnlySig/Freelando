@@ -5,6 +5,7 @@ import cliente from "../../images/cliente.png";
 import freela from "../../images/freela.png";
 import { Link } from "react-router-dom";
 import styled from "@emotion/styled";
+import { useCadastroUsuarioContext } from "../../context/CadastroUsuario";
 
 const StyledDiv = styled.div `
   display: flex;
@@ -29,6 +30,7 @@ const StyledAvatar = styled.div `
 `;
 
 const SelecaoCliente = () => {
+  const { updateUserField } = useCadastroUsuarioContext();
   return (
     <section style={{ textAlign: "center" }}>
       <div>
@@ -42,10 +44,10 @@ const SelecaoCliente = () => {
       <Row>
         <Col lg={6} md={6} sm={12}>
           <StyledAvatar>
-            <Link to="interesses"> { /** NÃO PRECISA FAZER ASSIM: /cadastro/interesses */ }
+            <Link to="interesses" onClick={()=> updateUserField("perfil", "cliente")}> { /** NÃO PRECISA FAZER ASSIM: /cadastro/interesses */ }
               <img src={cliente} alt="foto de um cliente"/>
               <Tipografia variante="body" tag="body">
-              Sou cliente e preciso de um freela!
+                Sou cliente e preciso de um freela!
               </Tipografia>
             </Link>
           </StyledAvatar>

@@ -42,7 +42,7 @@ const RadioBtn = ({ valor, radioText, checked, onClick }) => {
 };
 
 RadioBtn.propTypes = {
-  valor: PropTypes.string,
+  valor: PropTypes.number,
   radioText: PropTypes.string,
   checked: PropTypes.bool,
   onClick: PropTypes.func

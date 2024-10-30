@@ -6,7 +6,7 @@ import { ReactComponent as ArrowRigth } from "../../images/icons/iconeBotões/í
 import { ReactComponent as ArrowLeft } from "../../images/icons/iconeBotões/ícone voltar.svg";
 
 // eslint-disable-next-line react/prop-types
-const PrevNext = ({prev, next}) => {
+const PrevNext = ({prev, next, onClick, disabled, form = false}) => {
   return (
     <Row style={{ marginTop: "32px" }}>
       <Col lg={6} md={6} sm={6} >
@@ -18,12 +18,17 @@ const PrevNext = ({prev, next}) => {
         </Link>
       </Col>
       <Col lg={6} md={6} sm={6} style={{ textAlign: "-webkit-right" }}>
-        <Link to={next} style={{ textDecoration: "none" }}>
-          <Button>
+        {!form ? <Link to={next} style={{ textDecoration: "none" }} onClick={onClick}>
+          <Button disabled={disabled} type="submit">
             Próximo
             <ArrowRigth/>
           </Button>
-        </Link>
+        </Link> :
+          <Button disabled={disabled} type="submit">
+            Próximo
+            <ArrowRigth/>
+          </Button>
+        }
       </Col>
     </Row>
   );

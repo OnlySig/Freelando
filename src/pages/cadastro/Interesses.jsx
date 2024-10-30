@@ -1,12 +1,13 @@
-import React, { useState } from "react";
+import React from "react";
 import GroupRadio from "../../components/GroupRadio";
 import { opcoes } from "../../components/GroupRadio/opcoes";
 import Tipografia from "../../components/Tipografia";
 import PrevNext from "../../components/PrevNext";
+import { useCadastroUsuarioContext } from "../../context/CadastroUsuario";
 
 const Interesses = () => {
-  const [opcao, setOpcao] = useState(0);
-
+  const { updateUserField, usuario } = useCadastroUsuarioContext();
+  console.log(usuario);
   return (
     <div style={{ textAlign: "center" }}>
       <Tipografia tag="h1" variante="h1">
@@ -15,8 +16,8 @@ const Interesses = () => {
       <Tipografia tag="h3" variante="h3">
         Qual a área de interesse?
       </Tipografia>
-      <GroupRadio opcoes={opcoes} valor={opcao} onChange={setOpcao}/>
-      <PrevNext prev=".." next="/cadastro/dados-pessoais"/>
+      <GroupRadio opcoes={opcoes} valor={usuario.interesse} onChange={(e) => updateUserField("interesse", e)}/>
+      <PrevNext prev=".." next="/cadastro/dados-pessoais" disabled={!usuario.interesse}/>
     </div>
   );
 };

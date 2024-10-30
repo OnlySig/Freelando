@@ -1,4 +1,5 @@
-import React, { createContext, useState } from "react";
+import React, { createContext, useContext, useState } from "react";
+import { useNavigate } from "react-router-dom";
 const initialUser = {
   perfil: "",
   interesse: "",
@@ -10,26 +11,21 @@ const initialUser = {
   senhaConfimada: "",
 };
 export const CadastroUsuarioContext = createContext({
-  initialUser,
-  setPerfil: () => null,
-  setInteresse: () => null,
-  setNome: () => null,
-  setUf: () => null,
-  setCidade: () => null,
-  setEmail: () => null,
-  setSenha: () => null,
-  setSenhaConfirm: () => null,
+  usuario: initialUser,
+  updateUserField: () => null,
+  submitarUsuario: () => null
 });
 
 export const useCadastroUsuarioContext = () => {
-  return useState(CadastroUsuarioContext);
+  return useContext(CadastroUsuarioContext);
 };
 
 // eslint-disable-next-line react/prop-types
 export const CadastroUsuarioProvider = ({ children }) => {
   
-  const [usuario, setUsuario] = useState(initialUser);
+  const navegar = useNavigate();
 
+  const [usuario, setUsuario] = useState(initialUser);
   const updateUserField = (field, value) => {
     setUsuario(prevUser => {
       return {
@@ -39,9 +35,15 @@ export const CadastroUsuarioProvider = ({ children }) => {
     });
   };
 
+  const submitarUsuario = () => {
+    console.log(usuario);
+    navegar("/cadastro/concluido");
+  };
+
   const context = {
     usuario,
     updateUserField,
+    submitarUsuario,
   };
   return (
     <CadastroUsuarioContext.Provider value={context}>

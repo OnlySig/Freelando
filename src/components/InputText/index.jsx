@@ -23,11 +23,16 @@ const StyledLabel = styled.label `
   }
 `;
 
-const InputText = ({ require, textLabel }) => {
+const InputText = ({ require, textLabel, value, setValue, type="text" }) => {
   return (
     <StyledLabel>
       <span>{textLabel}</span>
-      <input type="text" required={require}/>
+      <input 
+        value={value} 
+        onChange={e=>setValue(e.target.value)} 
+        type={type}
+        required={require}
+      />
     </StyledLabel>
   );
 };
@@ -35,8 +40,9 @@ const InputText = ({ require, textLabel }) => {
 InputText.propTypes = {
   require: PropTypes.bool,
   textLabel: PropTypes.string,
-  //value: PropTypes.string,
-  //setValue: PropTypes.func.isRequired,
+  value: PropTypes.string,
+  setValue: PropTypes.func.isRequired,
+  type: PropTypes.string
 };
 
 export default InputText;

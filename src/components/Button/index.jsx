@@ -51,9 +51,9 @@ const StyledButtonTwo = styled.button `
   }
 `;
 
-const Button = ({ children, variante = "primaria", click }) => {
+const Button = ({ children, variante = "primaria", click, disabled = false, type = "button" }) => {
   if(variante === "primaria") {
-    return <StyledButtonOne onClick={click}>
+    return <StyledButtonOne onClick={click} type={type} disabled={disabled}>
       { children }
     </StyledButtonOne>;
   }
@@ -65,7 +65,9 @@ const Button = ({ children, variante = "primaria", click }) => {
 Button.propTypes = {
   children: PropTypes.node.isRequired,
   variante: PropTypes.string,
-  click: PropTypes.func
+  type: PropTypes.string,
+  click: PropTypes.func,
+  disabled: PropTypes.bool
 };
 
 export default Button;
