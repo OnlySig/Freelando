@@ -1,4 +1,4 @@
-import React, { createContext, useContext, useState } from "react";
+import { createContext, useContext, useState } from "react";
 import { useNavigate } from "react-router-dom";
 const initialUser = {
   perfil: "",
@@ -49,16 +49,15 @@ export const CadastroUsuarioProvider = ({ children }) => {
 
   const submitarUsuario = () => {
     console.log(usuario);
-    if(usuario.senha !== usuario.senhaConfimada){
+    if(usuario.senha !== usuario.senhaConfimada) {
       formDadosPessoaisController("senha", "Senhas não são iguais!");
     } else {
-      usuario.errors = {};
+      usuario.errors.senha = null;
     }
     if(!usuario.uf.text || !usuario.uf.value) {
-      console.log("oi");
       formDadosPessoaisController("uf", "Campo estado é obrigatório!");
     } else {
-      usuario.errors = {};
+      usuario.errors.uf = null;
     }
     if(usuario.errors.senha || usuario.errors.uf) {
       return;

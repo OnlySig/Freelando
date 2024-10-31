@@ -1,6 +1,6 @@
-import React, { useState } from "react";
-import { ReactComponent as ArrowUp } from "../../images/icons/iconesComponentes/ícone expand less.svg";
-import { ReactComponent as ArrowDown } from "../../images/icons/iconesComponentes/ícone expand.svg";
+import { useState } from "react";
+import ArrowUp  from "../Icons/ArrowUp";
+import ArrowDown from "../../components/Icons/ArrowDown";
 import styled from "@emotion/styled";
 import PropTypes from "prop-types";
 

@@ -1,4 +1,3 @@
-import React from "react";
 import { createBrowserRouter } from "react-router-dom";
 import DadosPessoais from "../pages/cadastro/DadosPessoais";
 import SelecaoCliente from "../pages/cadastro/SelecaoCliente";

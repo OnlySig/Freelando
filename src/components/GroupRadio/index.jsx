@@ -1,5 +1,4 @@
 /* eslint-disable react/prop-types */
-import React from "react";
 import RadioBtn from "../RadioBtn";
 
 const GroupRadio = ({ opcoes, valor, onChange }) => {

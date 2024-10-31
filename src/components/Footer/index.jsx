@@ -1,12 +1,11 @@
 import styled from "@emotion/styled";
-import React from "react";
-import {ReactComponent as Logo} from "../../images/Logo-branco.svg";
-import {ReactComponent as Whatsapp} from "../../images/icons/iconesRedesSociais/Whatsapp.svg";
-import {ReactComponent as Twitch} from "../../images/icons/iconesRedesSociais/Twitch.svg";
-import {ReactComponent as Instagram} from "../../images/icons/iconesRedesSociais/Instagram.svg";
-import {ReactComponent as Twitter} from "../../images/icons/iconesRedesSociais/Twitter.svg";
+import logo from "../../assets/Logo-branco.svg";
+import whatsapp from "../../assets/icons/Whatsapp.svg";
+import twitch from "../../assets/icons/Twitch.svg";
+import instagram from "../../assets/icons/Instagram.svg";
+import twitter from "../../assets/icons/Twitter.svg";
 
-const StyledFooder = styled.footer `
+const StyledFooter = styled.footer `
   background-color: ${props=>props.theme.cores.primarias.a};
   padding: 50px 120px;
   display: flex;
@@ -20,6 +19,9 @@ const StyledFooder = styled.footer `
     font-size: ${props=>props.theme.espacamentos.s};
   }
 `;
+const StyledLogo = styled.img `
+  width: 170px;
+`;
 const StyledUl = styled.li `
   display: flex;
   gap: 8px;
@@ -28,29 +30,29 @@ const StyledUl = styled.li `
 
 const Footer = () => {
   return (
-    <StyledFooder>
+    <StyledFooter>
       <div>
-        <Logo/>
+        <StyledLogo src={logo} alt="" />
         <span>Desenvolvido por Alura & Pereira. Projeto ficticio sem fins comerciais.</span>
       </div>
       <div>
         <span>Acesse nossas redes:</span>
         <StyledUl>
           <li>
-            <Whatsapp/>
+            <img src={whatsapp} alt="" />
           </li>
           <li>
-            <Twitch/>
+            <img src={twitch} alt="" />
           </li>
           <li>
-            <Instagram/>
+            <img src={instagram} alt="" />
           </li>
           <li>
-            <Twitter/>
+            <img src={twitter} alt="" />
           </li>
         </StyledUl>
       </div>
-    </StyledFooder>
+    </StyledFooter>
   );
 };
 

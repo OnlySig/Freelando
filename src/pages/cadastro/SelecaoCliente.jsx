@@ -1,8 +1,7 @@
-import React from "react";
 import Tipografia from "../../components/Tipografia";
 import { Col, Row } from "react-grid-system";
-import cliente from "../../images/cliente.png";
-import freela from "../../images/freela.png";
+import cliente from "../../assets/cliente.png";
+import freela from "../../assets/freela.png";
 import { Link } from "react-router-dom";
 import styled from "@emotion/styled";
 import { useCadastroUsuarioContext } from "../../context/CadastroUsuario";

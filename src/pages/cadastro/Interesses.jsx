@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import { useEffect } from "react";
 import GroupRadio from "../../components/GroupRadio";
 import { opcoes } from "../../components/GroupRadio/opcoes";
 import Tipografia from "../../components/Tipografia";

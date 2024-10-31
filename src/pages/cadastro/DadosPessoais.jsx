@@ -1,4 +1,3 @@
-import React from "react";
 import Tipografia from "../../components/Tipografia";
 import InputText from "../../components/InputText";
 import { Col, Container, Row } from "react-grid-system";

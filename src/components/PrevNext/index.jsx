@@ -1,9 +1,8 @@
-import React from "react";
 import { Col, Row } from "react-grid-system";
 import { Link } from "react-router-dom";
 import Button from "../Button";
-import { ReactComponent as ArrowRigth } from "../../images/icons/iconeBotões/ícone próximo.svg";
-import { ReactComponent as ArrowLeft } from "../../images/icons/iconeBotões/ícone voltar.svg";
+import ArrowRigth from "../Icons/ArrowRigth";
+import ArrowLeft from "../Icons/ArrowLeft";
 
 // eslint-disable-next-line react/prop-types
 const PrevNext = ({prev, next, onClick, disabled, form = false}) => {

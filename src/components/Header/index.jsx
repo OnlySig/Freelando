@@ -1,5 +1,4 @@
-import React from "react";
-import Logo from "../../images/Logo-branco.svg";
+import Logo from "../../assets/Logo-branco.svg";
 import styled from "@emotion/styled";
 
 const StyledNav = styled.nav `

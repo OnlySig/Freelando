@@ -1,6 +1,5 @@
 import PropTypes from "prop-types";
 import styled from "@emotion/styled";
-import React from "react";
 
 const StyledDiv = styled.div `
   padding: ${props => props.theme.espacamentos.l};

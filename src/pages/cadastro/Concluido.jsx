@@ -1,8 +1,7 @@
-import React from "react";
 import Tipografia from "../../components/Tipografia";
-import imgConcluido from "../../images/cliente-concluido.png";
+import imgConcluido from "../../assets/cliente-concluido.png";
 import Button from "../../components/Button";
-import { ReactComponent as ArrowLeft } from "../../images/icons/iconeBotões/ícone voltar.svg";
+import ArrowLeft from "../../components/Icons/ArrowLeft";
 import styled from "@emotion/styled";
 import { Link } from "react-router-dom";
 

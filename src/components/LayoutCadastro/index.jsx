@@ -1,4 +1,3 @@
-import React from "react";
 import Card from "../Card";
 import { Col, Row } from "react-grid-system";
 import { Outlet } from "react-router-dom";
