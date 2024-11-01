@@ -1,0 +1,17 @@
+export const habilidade = [
+  "Design",
+  "Branding",
+  "Ilustração",
+  "Marketing",
+  "Identidade Visual",
+  "SEO",
+  "Redação",
+  "Transcrição",
+  "Revisão",
+  "Tradução",
+  "E-Books",
+  "ABNT",
+  "Programação",
+  "Desenvolvimento de Aplicativo",
+  "Desenvolvimento de Websites",
+];

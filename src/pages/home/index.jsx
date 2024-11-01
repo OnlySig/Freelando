@@ -1,20 +1,16 @@
-import styled from "@emotion/styled";
 import Banner from "../../components/Banner";
 import CardVantages from "../../components/CardVantages";
-import {freela} from "../../components/CardVantages/freela";
-const StyledRowFreela = styled.div `
-  display: flex;
-  justify-content: center;
-  gap: 24px;
-  flex-wrap: wrap;
-`;
+import { client } from "../../components/CardVantages/client";
+import { freela } from "../../components/CardVantages/freela";
+import { habilidade } from "../../components/CardVantages/habilidade";
+
 const HomePage = () => {
   return (
     <>
       <Banner/>
-      <StyledRowFreela>
-        <CardVantages type="freela" vantagens={freela}/>
-      </StyledRowFreela>
+      <CardVantages type="freela" vantagens={freela} title="Vantagens para contratantes"/>
+      <CardVantages type="client" vantagens={client} title="Vantagens para freelas"/>
+      <CardVantages type="habilidade" vantagens={habilidade} title="Quais habilidades você encontra por aqui?"/>
     </>
   );
 };
