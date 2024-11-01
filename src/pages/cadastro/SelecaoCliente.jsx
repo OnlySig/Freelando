@@ -4,7 +4,7 @@ import cliente from "../../assets/cliente.png";
 import freela from "../../assets/freela.png";
 import { Link } from "react-router-dom";
 import styled from "@emotion/styled";
-import { useCadastroUsuarioContext } from "../../context/CadastroUsuario";
+import useCadastroUser from "../../hook/useCadastroUser";
 
 const StyledDiv = styled.div `
   display: flex;
@@ -29,7 +29,7 @@ const StyledAvatar = styled.div `
 `;
 
 const SelecaoCliente = () => {
-  const { updateUserField, usuario } = useCadastroUsuarioContext();
+  const { updateUserField, usuario } = useCadastroUser();
   console.log(usuario);
   return (
     <section style={{ textAlign: "center" }}>

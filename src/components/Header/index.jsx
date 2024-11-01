@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import Logo from "../../assets/Logo-branco.svg";
 import styled from "@emotion/styled";
 
@@ -18,7 +19,9 @@ const StyledLi = styled.li `
 const Header = () => {
   return (
     <StyledNav>
-      <img src={Logo} alt="logo do freelando" />
+      <Link to={"/"}>
+        <img src={Logo} alt="logo do freelando" />
+      </Link>
       <ul>
         <StyledLi>Login</StyledLi>
       </ul>

@@ -4,14 +4,14 @@ import { Col, Container, Row } from "react-grid-system";
 import Select from "../../components/Select";
 import { estados } from "../../components/Select/estados";
 import PrevNext from "../../components/PrevNext";
-import { useCadastroUsuarioContext } from "../../context/CadastroUsuario";
+import useCadastroUser from "../../hook/useCadastroUser";
 
 const DadosPessoais = () => {
   const { 
     usuario, 
     updateUserField,
     submitarUsuario
-  } = useCadastroUsuarioContext();
+  } = useCadastroUser();
   const handleSubmit = (e) => {
     e.preventDefault();
     submitarUsuario();

@@ -3,15 +3,15 @@ import GroupRadio from "../../components/GroupRadio";
 import { opcoes } from "../../components/GroupRadio/opcoes";
 import Tipografia from "../../components/Tipografia";
 import PrevNext from "../../components/PrevNext";
-import { useCadastroUsuarioContext } from "../../context/CadastroUsuario";
 import { useNavigate } from "react-router-dom";
+import useCadastroUser from "../../hook/useCadastroUser";
 
 const Interesses = () => {
   const { 
     updateUserField, 
     usuario, 
     selectInteresse 
-  } = useCadastroUsuarioContext();
+  } = useCadastroUser();
   
   const navegar = useNavigate();
   useEffect(()=>{

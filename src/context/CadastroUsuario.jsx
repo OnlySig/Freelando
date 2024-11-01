@@ -1,4 +1,4 @@
-import { createContext, useContext, useState } from "react";
+import { createContext, useState } from "react";
 import { useNavigate } from "react-router-dom";
 const initialUser = {
   perfil: "",
@@ -14,18 +14,13 @@ const initialUser = {
   senhaConfimada: "",
   errors: {}
 };
-export const CadastroUsuarioContext = createContext({
+const CadastroUsuarioContext = createContext({
   usuario: initialUser,
   updateUserField: () => null,
   submitarUsuario: () => null,
   selectInteresse: () => null,
   errors: {}
 });
-
-export const useCadastroUsuarioContext = () => {
-  return useContext(CadastroUsuarioContext);
-};
-
 // eslint-disable-next-line react/prop-types
 export const CadastroUsuarioProvider = ({ children }) => {
   
@@ -82,3 +77,5 @@ export const CadastroUsuarioProvider = ({ children }) => {
     </CadastroUsuarioContext.Provider>
   );
 };
+
+export default CadastroUsuarioContext;
