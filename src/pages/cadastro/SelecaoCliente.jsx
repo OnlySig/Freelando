@@ -6,15 +6,15 @@ import { Link } from "react-router-dom";
 import styled from "@emotion/styled";
 import useCadastroUser from "../../hook/useCadastroUser";
 
-const StyledDiv = styled.div `
+const StyledDiv = styled.div`
   display: flex;
   flex-direction: column;
   margin-top: 58px;
   a {
-    color: ${props=>props.theme.cores.primarias.b}
+    color: ${props => props.theme.cores.primarias.b}
   }
 `;
-const StyledAvatar = styled.div `
+const StyledAvatar = styled.div`
   text-align: center; 
   display: flex; 
   flex-direction: column; 
@@ -24,18 +24,17 @@ const StyledAvatar = styled.div `
   }
   a {
     text-decoration: none;
-    color: ${props=>props.theme.cores.neutras.a};
+    color: ${props => props.theme.cores.neutras.a};
   }
 `;
 
 const SelecaoCliente = () => {
-  const { updateUserField, usuario } = useCadastroUser();
-  console.log(usuario);
+  const { updateUserField } = useCadastroUser();
   return (
     <section style={{ textAlign: "center" }}>
       <div>
         <Tipografia tag="h1" variante="h1">
-            Crie seu cadastro
+          Crie seu cadastro
         </Tipografia>
         <Tipografia tag="h3" variante="h3">
           Como podemos te ajudar?
@@ -44,8 +43,8 @@ const SelecaoCliente = () => {
       <Row>
         <Col lg={6} md={6} sm={12}>
           <StyledAvatar>
-            <Link to="interesses" onClick={()=> updateUserField("perfil", "cliente")}> { /** NÃO PRECISA FAZER ASSIM: /cadastro/interesses */ }
-              <img src={cliente} alt="foto de um cliente"/>
+            <Link to="interesses" onClick={() => updateUserField("perfil", "cliente")}> { /** NÃO PRECISA FAZER ASSIM: /cadastro/interesses */}
+              <img src={cliente} alt="foto de um cliente" />
               <Tipografia variante="body" tag="body">
                 Sou cliente e preciso de um freela!
               </Tipografia>
@@ -54,7 +53,7 @@ const SelecaoCliente = () => {
         </Col>
         <Col lg={6} md={6} sm={12}>
           <StyledAvatar>
-            <img src={freela} alt="foto de um freelancer"/>
+            <img src={freela} alt="foto de um freelancer" />
             <Tipografia variante="body" tag="body">
               Sou um freela e prociso de clientes!
             </Tipografia>

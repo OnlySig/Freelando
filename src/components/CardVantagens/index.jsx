@@ -67,8 +67,6 @@ const StyledDivHabilit = styled.div `
     border-radius: 16px;
     color: ${props=>props.theme.cores.neutras.a};
     border: 1px solid ${props=>props.theme.cores.neutras.a};
-    height: fit-content;
-    white-space: nowrap;
   }
 `;
 

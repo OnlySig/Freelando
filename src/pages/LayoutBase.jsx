@@ -3,14 +3,16 @@ import Footer from "../components/Footer";
 import { Outlet } from "react-router-dom";
 import { Container } from "react-grid-system";
 
-const LayoutBase = () => {
+// eslint-disable-next-line react/prop-types
+const LayoutBase = ({ children }) => {
   return (
     <>
-      <Header/>
+      <Header />
       <Container>
-        <Outlet/>
+        <Outlet />
+        {children}
       </Container>
-      <Footer/>
+      <Footer />
     </>
   );
 };

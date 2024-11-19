@@ -1,3 +1,4 @@
+import axios from "axios";
 import { createContext, useState } from "react";
 import { useNavigate } from "react-router-dom";
 const initialUser = {
@@ -12,21 +13,19 @@ const initialUser = {
   email: "",
   senha: "",
   senhaConfimada: "",
-  errors: {}
 };
 const CadastroUsuarioContext = createContext({
   usuario: initialUser,
   updateUserField: () => null,
-  submitarUsuario: () => null,
+  submitarUsuario: async () => null,
   selectInteresse: () => null,
-  errors: {}
 });
 // eslint-disable-next-line react/prop-types
 export const CadastroUsuarioProvider = ({ children }) => {
-  
   const navegar = useNavigate();
-
   const [usuario, setUsuario] = useState(initialUser);
+  const errors = {};
+
   const updateUserField = (field, value) => {
     setUsuario(prevUser => {
       return {
@@ -36,29 +35,27 @@ export const CadastroUsuarioProvider = ({ children }) => {
     });
   };
 
-  const formDadosPessoaisController = (field, message) => {
-    usuario.errors = {
-      [field]: message
-    };
-  };
-
-  const submitarUsuario = () => {
-    console.log(usuario);
-    if(usuario.senha !== usuario.senhaConfimada) {
-      formDadosPessoaisController("senha", "Senhas não são iguais!");
+  const submitarUsuario = async () => {
+    if (usuario.senha !== usuario.senhaConfimada) {
+      errors.senha = "senha invalida";
     } else {
-      usuario.errors.senha = null;
+      errors.senha = null;
+      //setError(null);
     }
-    if(!usuario.uf.text || !usuario.uf.value) {
-      formDadosPessoaisController("uf", "Campo estado é obrigatório!");
+    if (!usuario.uf.text || !usuario.uf.value) {
+      errors.uf = "sem endereco";
     } else {
-      usuario.errors.uf = null;
+      errors.uf = null;
     }
-    if(usuario.errors.senha || usuario.errors.uf) {
+    if (errors.senha || errors.uf) {
       return;
     }
-      
-    navegar("/cadastro/concluido");
+    try {
+      await axios.post("http://localhost:8080/auth/register", usuario);
+      navegar("/cadastro/concluido");
+    } catch (error) {
+      console.error(error);
+    }
   };
 
   const selectInteresse = () => {
@@ -73,7 +70,7 @@ export const CadastroUsuarioProvider = ({ children }) => {
   };
   return (
     <CadastroUsuarioContext.Provider value={context}>
-      { children }
+      {children}
     </CadastroUsuarioContext.Provider>
   );
 };

@@ -1,8 +1,8 @@
 import Banner from "../../components/Banner";
-import CardVantages from "../../components/CardVantages";
-import { client } from "../../components/CardVantages/client";
-import { freela } from "../../components/CardVantages/freela";
-import { habilidade } from "../../components/CardVantages/habilidade";
+import CardVantages from "../../components/CardVantagens";
+import { client } from "../../components/CardVantagens/client";
+import { freela } from "../../components/CardVantagens/freela";
+import { habilidade } from "../../components/CardVantagens/habilidade";
 
 const HomePage = () => {
   return (

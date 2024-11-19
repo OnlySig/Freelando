@@ -7,70 +7,69 @@ import PrevNext from "../../components/PrevNext";
 import useCadastroUser from "../../hook/useCadastroUser";
 
 const DadosPessoais = () => {
-  const { 
-    usuario, 
+  const {
+    usuario,
     updateUserField,
     submitarUsuario
   } = useCadastroUser();
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     submitarUsuario();
   };
-  console.log(usuario);
   return (
     <Container>
       <form onSubmit={handleSubmit}>
         <div style={{ textAlign: "center" }}>
           <Tipografia variante="h1" tag="h1">
-          Freelando
+            Freelando
           </Tipografia>
           <Tipografia variante="body" tag="body">
-          Crie seu perfil gratuitamente para começar a trabalhar com os melhores freelancers. Em seguida, você poderá dar mais detalhes sobre suas demandas e sobre sua forma de trabalho. 
+            Crie seu perfil gratuitamente para começar a trabalhar com os melhores freelancers. Em seguida, você poderá dar mais detalhes sobre suas demandas e sobre sua forma de trabalho.
           </Tipografia>
         </div>
         <Row>
           <Col >
-            <InputText 
-              require 
-              textLabel="Nome Completo" 
-              value={usuario.nomeCompleto} 
+            <InputText
+              require
+              textLabel="Nome Completo"
+              value={usuario.nomeCompleto}
               setValue={nome => updateUserField("nomeCompleto", nome)}
             />
           </Col>
         </Row>
         <Row>
           <Col lg={4} md={4} sm={4}>
-            <Select 
-              label="Estado" 
-              arry={estados} 
-              selecionado={usuario.uf} 
+            <Select
+              label="Estado"
+              arry={estados}
+              selecionado={usuario.uf}
               setSelecionado={estado => updateUserField("uf", estado)}
             />
           </Col>
           <Col lg={8} md={8} sm={8}>
-            <InputText 
-              require 
-              textLabel="Cidade" 
-              value={usuario.cidade} 
+            <InputText
+              require
+              textLabel="Cidade"
+              value={usuario.cidade}
               setValue={cidade => updateUserField("cidade", cidade)}
             />
           </Col>
         </Row>
         <Row>
           <Col >
-            <InputText 
-              require 
-              textLabel="Email" 
-              type="email" 
-              value={usuario.email} 
+            <InputText
+              require
+              textLabel="Email"
+              type="email"
+              value={usuario.email}
               setValue={email => updateUserField("email", email)}
             />
           </Col>
         </Row>
         <Row >
           <Col lg={6} md={6} sm={6}>
-            <InputText 
-              require 
+            <InputText
+              require
               textLabel="Senha"
               type="password"
               value={usuario.senha}
@@ -78,8 +77,8 @@ const DadosPessoais = () => {
             />
           </Col>
           <Col lg={6} md={6} sm={6}>
-            <InputText 
-              require 
+            <InputText
+              require
               textLabel="Repita a senha"
               value={usuario.senhaConfimada}
               type="password"
@@ -87,7 +86,7 @@ const DadosPessoais = () => {
             />
           </Col>
         </Row>
-        <PrevNext prev="/cadastro/interesses" next="/cadastro/concluido" form={true}/>
+        <PrevNext prev="/cadastro/interesses" next="/cadastro/concluido" form={true} />
       </form>
     </Container>
   );

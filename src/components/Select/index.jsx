@@ -1,10 +1,10 @@
 import { useState } from "react";
-import ArrowUp  from "../Icons/ArrowUp";
+import ArrowUp from "../Icons/ArrowUp";
 import ArrowDown from "../../components/Icons/ArrowDown";
 import styled from "@emotion/styled";
 import PropTypes from "prop-types";
 
-const StyledLabel = styled.label `
+const StyledLabel = styled.label`
   display: flex;
   flex-direction: column;
   width: -webkit-fill-available;
@@ -15,7 +15,7 @@ const StyledLabel = styled.label `
   }
   span {
     font-size: 20px;
-    color: ${props=>props.theme.cores.neutras.a};
+    color: ${props => props.theme.cores.neutras.a};
   }
   ul {
     max-height: 190px;
@@ -23,7 +23,7 @@ const StyledLabel = styled.label `
     padding: 0;
     background-color: #FFF;
     margin-top: 0;
-    border: 1px solid ${props=>props.theme.cores.neutras.a};
+    border: 1px solid ${props => props.theme.cores.neutras.a};
     border-radius: 0 0 16px 16px;
   }
   ul::-webkit-scrollbar {
@@ -31,22 +31,22 @@ const StyledLabel = styled.label `
   } // faz sumir a scrollbar
   li {
     padding: 8px;
-    border-bottom: 1px solid ${props=>props.theme.cores.neutras.b};
+    border-bottom: 1px solid ${props => props.theme.cores.neutras.b};
     text-align: center;
     list-style: none;
     cursor: pointer;
   }
   li:hover {
-    background-color: ${props=>props.theme.cores.neutras.b};
+    background-color: ${props => props.theme.cores.neutras.b};
   }
 `;
 
-const StyledButton = styled.button `
-  border: 1px solid ${props=>props.theme.cores.neutras.a};
+const StyledButton = styled.button`
+  border: 1px solid ${props => props.theme.cores.neutras.a};
   border-start-start-radius: 16px;
   border-start-end-radius: 16px;
-  border-bottom-right-radius: ${props=> props.toggle ? "0px" : "16px"};
-  border-bottom-left-radius: ${props=> props.toggle ? "0px" : "16px"};
+  border-bottom-right-radius: ${props => props.toggle ? "0px" : "16px"};
+  border-bottom-left-radius: ${props => props.toggle ? "0px" : "16px"};
   background-color: #FFF;
   padding: 13px 16px;
   max-height: 44px;
@@ -55,13 +55,12 @@ const StyledButton = styled.button `
   display: flex;
   justify-content: space-evenly;
   align-items: center;
-  color: ${props=>props.theme.cores.neutras.a};
+  color: ${props => props.theme.cores.neutras.a};
 `;
 
 const Select = ({ label, arry, selecionado, setSelecionado }) => {
   const [toggle, setToggle] = useState(false);
-  if(!arry) return <h1>dados inválidos!</h1>;
-  console.log(selecionado);
+  if (!arry) return <h1>dados inválidos!</h1>;
   return (
     <>
       <StyledLabel>
@@ -69,23 +68,23 @@ const Select = ({ label, arry, selecionado, setSelecionado }) => {
           {label}
         </span>
         <StyledButton
-          type="button" 
+          type="button"
           toggle={toggle}
-          onKeyDown={()=>setToggle(true)}
-          onClick={()=>setToggle(!toggle)}
+          onKeyDown={() => setToggle(true)}
+          onClick={() => setToggle(!toggle)}
         >
-          {selecionado.text === "" ? "Selecione" : selecionado.text }
+          {selecionado.text === "" ? "Selecione" : selecionado.text}
           {toggle ?
-            <ArrowUp />:
+            <ArrowUp /> :
             <ArrowDown />
           }
         </StyledButton>
         {toggle && <ul>
-          {arry?.map((e, index) => 
-            <li 
-              onClick={()=>setSelecionado(e)}
+          {arry?.map((e, index) =>
+            <li
+              onClick={() => setSelecionado(e)}
               key={index}>
-              { e.text }
+              {e.text}
             </li>
           )}
         </ul>}
@@ -96,7 +95,7 @@ const Select = ({ label, arry, selecionado, setSelecionado }) => {
 
 Select.propTypes = {
   setSelecionado: PropTypes.func,
-  selecionado: PropTypes.object, 
+  selecionado: PropTypes.object,
   label: PropTypes.string,
   arry: PropTypes.array
 };
