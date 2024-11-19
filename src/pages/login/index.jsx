@@ -49,8 +49,8 @@ const ContainerAncor = styled.div`
 `;
 
 const Login = () => {
-  const [email, setEmail] = useState("");
-  const [senha, setSenha] = useState("");
+  const [email, setEmail] = useState("nsei@nsei.com");
+  const [senha, setSenha] = useState("123");
   const { login } = useSessaoLogin();
   const handleClick = async () => {
     await login(email, senha);

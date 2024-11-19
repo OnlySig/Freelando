@@ -1,6 +1,6 @@
-import axios from "axios";
-import { createContext, useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { createContext, useState } from "react";
+import http from "../http";
 const initialUser = {
   perfil: "",
   interesse: "",
@@ -51,7 +51,7 @@ export const CadastroUsuarioProvider = ({ children }) => {
       return;
     }
     try {
-      await axios.post("http://localhost:8080/auth/register", usuario);
+      await http.post("auth/register", usuario);
       navegar("/cadastro/concluido");
     } catch (error) {
       console.error(error);

@@ -1,5 +1,6 @@
-import axios from "axios";
 import { createContext } from "react";
+import http from "../http";
+import { StoreToken } from "../utils/StoreToken";
 
 const SessaoUsuarioContext = createContext({
   isLogado: false,
@@ -14,11 +15,11 @@ export const SessaoUsuarioProvider = ({ children }) => {
 
   const login = async (email, senha) => {
     try {
-      const resp = await axios.post("http://localhost:8080/auth/login", {
+      const resp = await http.post("auth/login", {
         email,
         senha
       });
-      console.log(resp);
+      StoreToken.definirTokens(resp.data.access_token, resp.data.refresh_token);
     } catch (error) {
       console.error(error);
     }
