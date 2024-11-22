@@ -27,7 +27,7 @@ const Interesses = () => {
       <Tipografia tag="h3" variante="h3">
         Qual a área de interesse?
       </Tipografia>
-      <GroupRadio opcoes={opcoes} valor={usuario.interesse} onChange={(e) => updateUserField("interesse", e)} />
+      <GroupRadio opcoes={opcoes} valor={usuario.interesse} onChange={(opcao) => updateUserField("interesse", opcao)} />
       <PrevNext prev=".." next="/cadastro/dados-pessoais" disabled={!usuario.interesse} />
     </div>
   );

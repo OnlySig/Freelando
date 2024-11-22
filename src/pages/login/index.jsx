@@ -1,4 +1,4 @@
-import { Col, Row } from "react-grid-system";
+import { Col, Container, Row } from "react-grid-system";
 import Card from "../../components/Card";
 import { StyledDiv } from "../../components/styledComponents/StyledDiv";
 import InputText from "../../components/InputText";
@@ -52,43 +52,48 @@ const Login = () => {
   const [email, setEmail] = useState("nsei@nsei.com");
   const [senha, setSenha] = useState("123");
   const { login } = useSessaoLogin();
-  const handleClick = async () => {
-    await login(email, senha);
+  const handleClick = () => {
+    if (!email || !senha) {
+      return alert("ta faltando coisa ai kkkk");
+    }
+    login(email, senha);
   };
   return (
-    <Row justify="center">
-      <Col xxl={6} xl={6} lg={6} md={8} sm={12}>
-        <div style={{ textAlign: "center" }}>
-          <StyledImg src={logoMarca} alt="Logo do freelando." />
-          <Card>
-            <StyledDiv>
-              <StyledH1>Efetuar Login</StyledH1>
-              <ContainerLogin>
-                <InputText textLabel="Email" require value={email} setValue={(e) => setEmail(e)} />
-                <InputText textLabel="Senha" require value={senha} setValue={(e) => setSenha(e)} />
-                <ContainerForgetPass>
-                  <Link to="#">
-                    Esqueceu sua senha?
+    <Container>
+      <Row justify="center">
+        <Col xxl={6} xl={6} lg={6} md={8} sm={12}>
+          <div style={{ textAlign: "center" }}>
+            <StyledImg src={logoMarca} alt="Logo do freelando." />
+            <Card>
+              <StyledDiv>
+                <StyledH1>Efetuar Login</StyledH1>
+                <ContainerLogin>
+                  <InputText textLabel="Email" require value={email} setValue={(e) => setEmail(e)} />
+                  <InputText textLabel="Senha" require value={senha} setValue={(e) => setSenha(e)} />
+                  <ContainerForgetPass>
+                    <Link to="#">
+                      Esqueceu sua senha?
+                    </Link>
+                  </ContainerForgetPass>
+                </ContainerLogin>
+                <ContainerButton>
+                  <Button onClick={handleClick}>
+                    Login
+                    <LoginIcon />
+                  </Button>
+                </ContainerButton>
+                <ContainerAncor>
+                  <p>Ainda não criou sua conta no Freelando?</p>
+                  <Link to={"/cadastro"}>
+                    Cadastre-se clicando aqui!
                   </Link>
-                </ContainerForgetPass>
-              </ContainerLogin>
-              <ContainerButton>
-                <Button onClick={handleClick}>
-                  Login
-                  <LoginIcon />
-                </Button>
-              </ContainerButton>
-              <ContainerAncor>
-                <p>Ainda não criou sua conta no Freelando?</p>
-                <Link to={"/cadastro"}>
-                  Cadastre-se clicando aqui!
-                </Link>
-              </ContainerAncor>
-            </StyledDiv>
-          </Card>
-        </div>
-      </Col>
-    </Row>
+                </ContainerAncor>
+              </StyledDiv>
+            </Card>
+          </div>
+        </Col>
+      </Row>
+    </Container>
   );
 };
 

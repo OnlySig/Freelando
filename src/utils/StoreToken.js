@@ -12,4 +12,7 @@ export class StoreToken {
   static get refreshToken() {
     return sessionStorage.getItem(REFRESH_TOKEN);
   }
+  static remveToken(accessToken) {
+    sessionStorage.removeItem(accessToken);
+  }
 }

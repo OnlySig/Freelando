@@ -53,10 +53,12 @@ const SelecaoCliente = () => {
         </Col>
         <Col lg={6} md={6} sm={12}>
           <StyledAvatar>
-            <img src={freela} alt="foto de um freelancer" />
-            <Tipografia variante="body" tag="body">
-              Sou um freela e prociso de clientes!
-            </Tipografia>
+            <Link to="interesses" onClick={() => updateUserField("perfil", "freelancer")}>
+              <img src={freela} alt="foto de um freelancer" />
+              <Tipografia variante="body" tag="body">
+                Sou um freela e prociso de clientes!
+              </Tipografia>
+            </Link>
           </StyledAvatar>
         </Col>
       </Row>

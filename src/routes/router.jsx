@@ -8,6 +8,7 @@ import Concluido from "../pages/cadastro/Concluido";
 import HomePage from "../pages/home";
 import Error404 from "../pages/errors/Error404";
 import Login from "../pages/login";
+import Perfil from "../pages/Perfil";
 
 export const router = createBrowserRouter([
   {
@@ -22,6 +23,15 @@ export const router = createBrowserRouter([
       {
         path: "login",
         element: <Login />
+      },
+      {
+        path: "area-logado",
+        children: [
+          {
+            path: "perfil",
+            element: <Perfil />
+          }
+        ]
       },
       {
         path: "cadastro",

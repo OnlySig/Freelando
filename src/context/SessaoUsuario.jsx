@@ -25,8 +25,13 @@ export const SessaoUsuarioProvider = ({ children }) => {
     }
   };
 
+  const logout = () => {
+    console.log("deslogado");
+  };
+
   const context = {
-    login
+    login,
+    logout
   };
   return (<SessaoUsuarioContext.Provider value={context}>
     {children}
