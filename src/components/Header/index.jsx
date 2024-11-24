@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import Logo from "../../assets/Logo-branco.svg";
 import styled from "@emotion/styled";
+import useSessaoLogin from "../../hook/useSessaoLogin";
 
 const StyledNav = styled.nav`
   background-color: ${props => props.theme.cores.primarias.a};
@@ -20,6 +21,7 @@ const StyledLi = styled.li`
 `;
 
 const Header = () => {
+  const { isLogado, logout } = useSessaoLogin();
   return (
     <StyledNav>
       <Link to={"/"}>
@@ -27,9 +29,12 @@ const Header = () => {
       </Link>
       <ul>
         <StyledLi>
-          <Link to={"/login"}>
+          {!isLogado ? <Link to={"/login"}>
             Login
-          </Link>
+          </Link> :
+            <Link to={"/login"} onClick={logout}>
+              logout
+            </Link>}
         </StyledLi>
       </ul>
     </StyledNav>

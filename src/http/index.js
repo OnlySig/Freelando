@@ -19,4 +19,36 @@ http.interceptors.request.use(
   },
 );
 
+const rotasAserIgnoradas = ["auth/login", "auth/refresh"];
+
+const tryRefreshTk = async () => {
+  const token = StoreToken.refreshToken;
+  const { data } = await axios.get("http://localhost:8080/auth/refresh", {
+    headers: {
+      Authorization: `Bearer ${token}`,
+    },
+  });
+  StoreToken.definirTokens(data.access_token, data.refresh_token);
+  return data;
+};
+
+const handleError401 = async (error) => {
+  await tryRefreshTk().then(() => http(error.config));
+  return Promise.reject(error);
+};
+
+http.interceptors.response.use(
+  (res) => res, // <- "final feliz, range status code 2xx"
+  async function (error) {
+    // <- "final triste, range status code !== 2xx"
+    if (
+      error.response.status === 401 &&
+      !rotasAserIgnoradas.includes(error.config.url)
+    ) {
+      return handleError401(error);
+    }
+    return Promise.reject(error);
+  },
+);
+
 export default http;

@@ -10,8 +10,6 @@ import Button from "../../components/Button";
 import Salvar from "../../components/Icons/Salvar";
 import { useEffect, useState } from "react";
 import http from "../../http";
-import { StoreToken } from "../../utils/StoreToken";
-import { useNavigate } from "react-router-dom";
 
 const FormContent = styled.form`
   text-align: justify;
@@ -42,22 +40,26 @@ const ContainerBtn = styled.div`
 `;
 
 const Perfil = () => {
-  const navegar = useNavigate();
-  const token = StoreToken.accessToken;
+  const [objForm, setObjForm] = useState({});
   const [nome, setNome] = useState("");
-  const [sobrenome, setSobrenome] = useState("");
-  const [celular, setCelular] = useState("");
-  const [email, setEmail] = useState("");
-  const [cep, setCep] = useState("");
-  const [pais, setPais] = useState("");
+  const [firstName, setFristName] = useState("");
+  const [lastName, setLastName] = useState("");
   const handleSubmit = (e) => {
     e.preventDefault();
   };
   useEffect(() => {
-    if (!token) navegar("/login");
     const getUser = async () => {
-      const user = await http.get("profile");
-      console.log(user);
+      const { data } = await http.get("profile");
+      setObjForm({ ...data });
+      setNome(data.nomeCompleto);
+      if (data?.nomeCompleto) {
+        const name = data.nomeCompleto.split(" ");
+        setFristName(name[0]);
+        setLastName(() => {
+          if (name[1]) return name[1];
+          if (!name[1]) return "sem sobrenome";
+        });
+      }
     };
     getUser();
   }, []);
@@ -69,7 +71,7 @@ const Perfil = () => {
           <Col sm={12} md={4}>
             <Card>
               <StyledDiv>
-                <h2>Nome do usuário</h2>
+                <h2>{nome || "Nome do usuário"}</h2>
                 <img src={imgPerfilDefault} alt="" />
               </StyledDiv>
             </Card>
@@ -78,15 +80,35 @@ const Perfil = () => {
             <FormContent onSubmit={handleSubmit}>
               <h1>Revise seus dados</h1>
               <ContainerInput>
-                <InputText textLabel="Nome" value={nome} setValue={e => setNome(e)} />
-                <InputText textLabel="Sobrenome" value={sobrenome} setValue={e => setSobrenome(e)} />
+                <InputText textLabel="Nome" value={firstName} />
+                <InputText textLabel="Sobrenome" value={lastName} />
                 <StyledHalfInput>
-                  <InputText textLabel="Celular" value={celular} setValue={e => setCelular(e)} />
-                  <InputText textLabel="Email" value={email} setValue={e => setEmail(e)} />
+                  <InputText textLabel="Celular" value={objForm.celular} setValue={e => setObjForm(prevTxt => {
+                    return {
+                      ...prevTxt,
+                      celular: objForm.celular = e
+                    };
+                  })} />
+                  <InputText textLabel="Email" value={objForm.email} setValue={e => setObjForm(prevTxt => {
+                    return {
+                      ...prevTxt,
+                      email: objForm.email = e
+                    };
+                  })} />
                 </StyledHalfInput>
                 <StyledHalfInput>
-                  <InputText textLabel="Código postal" value={cep} setValue={e => setCep(e)} />
-                  <InputText textLabel="País" value={pais} setValue={e => setPais(e)} />
+                  <InputText textLabel="Código postal" value={objForm.cep} setValue={e => setObjForm(prevTxt => {
+                    return {
+                      ...prevTxt,
+                      cep: objForm.cep = e
+                    };
+                  })} />
+                  <InputText textLabel="País" value={objForm.pais} setValue={e => setObjForm(prevTxt => {
+                    return {
+                      ...prevTxt,
+                      pais: objForm.pais = e
+                    };
+                  })} />
                 </StyledHalfInput>
               </ContainerInput>
               <Row>
