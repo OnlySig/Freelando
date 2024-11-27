@@ -3,14 +3,17 @@ import { router } from "./routes/router";
 import CompThemeProvider from "./components/ThemeProvider";
 import { Estilos } from "./components/GlobalStyles/Styles";
 import { SessaoUsuarioProvider } from "./context/SessaoUsuario";
+import { ReactQueryProvider } from "./ReactQueryProvider";
 
 function App() {
   return (
     <CompThemeProvider>
       <Estilos />
-      <SessaoUsuarioProvider>
-        <RouterProvider router={router} />
-      </SessaoUsuarioProvider>
+      <ReactQueryProvider>
+        <SessaoUsuarioProvider>
+          <RouterProvider router={router} />
+        </SessaoUsuarioProvider>
+      </ReactQueryProvider>
     </CompThemeProvider>
   );
 }
